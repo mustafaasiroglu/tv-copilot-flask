@@ -3,6 +3,10 @@ config.py
 config.js
 venv/
 
+#vscode
+.vscode/
+.vs/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
