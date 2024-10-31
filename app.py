@@ -11,19 +11,27 @@ mysession ={}
 @app.route('/')
 def index():
     mode = request.args.get('mode')
-    if mode == None:
-        mode = "gpt"
-    mysession['chathistory'] = [{
-        "role": "system",
-        "content": [
-            {
-                "type": "text",
-                "text": config.system_prompt
-            }
-        ]
-    }]
-    print(mysession['chathistory'])
-    return render_template('index.html', mode=mode, speech_key=config.speech_key, speech_region=config.speech_region, speech_language=config.speech_language, speech_voice=config.speech_voice)  
+    if mode == "promptflow":
+        mysession['requestbody'] = {
+            "question": "",
+            "chat_history": [
+                {
+                    "inputs": {"question": "Merhaba"},
+                    "outputs": {"answer": "Merhaba, size nasıl yardımcı olabilirim?"}
+                }
+            ]
+        }
+    else:
+        mysession['chathistory'] = [{
+            "role": "system",
+            "content": [
+                {
+                    "type": "text",
+                    "text": config.system_prompt
+                }
+            ]
+        }]
+    return render_template('index.html', mode=mode, config=config) 
 
 
 @app.route('/generate', methods=['POST'])
@@ -42,6 +50,23 @@ def generate_response():
         }
     )
 	response = azureopenai.get_openai_response(mysession['chathistory'])
+	return jsonify(response)
+
+@app.route('/callpromptflow', methods=['POST'])
+def callpromptflow():
+	data = request.get_json()
+	message_input = data['text']
+	mysession['requestbody']['question'] = message_input
+	response = azureopenai.get_promptflow_response(mysession['requestbody'])
+
+
+	mysession['requestbody']['chat_history'].append(
+                {
+                    "inputs": {"question": message_input},
+                    "outputs": {"answer": response['answer']}
+                }
+    )
+	
 	return jsonify(response)
 
 @app.route('/favicon.ico')

@@ -2,9 +2,12 @@
 speech_region ="eastus2"
 speech_key= "..."
 speech_language = "tr-TR"
-speech_voice = "de-DE-FlorianMultilingualNeural"
-openai_endpoint = "https://.../deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview"
-openai_key = "...."
+speech_voice = "tr-TR-EmelNeural"
+openai_endpoint = "https://....openai-sw.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview"
+openai_key = "c1..."
+promptflow_endpoint = "https://......swedencentral.inference.ml.azure.com/score"
+promptflow_deployment = "tv-copilot-3"
+promptflow_key = "bh...."
 system_prompt = """
 **Prompt**:
 You are a TV chatbot conversing with a human. Your Name is TV Copilot. When the user provides information related to TV shows and movies, you should refer to the "Content" sections below to respond. If you advice films or series  from digital platforms(Netflix, Amazon Prime or BluTV, etc). you can add link for film or series and you should share link for film at the digital platform. Never answer with very long texts.
