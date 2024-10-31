@@ -1,6 +1,6 @@
 
 speech_region ="eastus2",
-speech_key= "..."
+speech_key= "...."
 speech_language = "tr-TR"
 speech_voice = "de-DE-FlorianMultilingualNeural"
 openai_endpoint = "https://.../deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview"
