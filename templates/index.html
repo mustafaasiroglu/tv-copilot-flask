@@ -28,6 +28,18 @@
                 margin-top: 20px;
             }
         }
+       
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1.0;
+                
+            }
+            50% {
+                opacity: 1;
+                background-color: #f3ffc97a;
+            }
+        }
+
         .message_assistant {
             background: #edf5ffa8;
             padding: 10px 15px;
@@ -35,7 +47,7 @@
             margin:20px auto 20px 20px ;
             max-width: 80%;
             width: fit-content;
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 1s ease-in, pulse 2s 1 2s;
         }
         .message_user {
             background: #dadada;
@@ -46,12 +58,17 @@
             width: fit-content;
             animation: fadeIn 1s ease-in;
         }
+        .message_assistant:hover,.message_user:hover{
+            box-shadow: 0 0 5px 0px #0000002b;
+            cursor: pointer;
+        }
 
         .ccard {
-            background: white;
+            background: rgba(255, 255, 255, 0.781);
             color: #007bff;
             border: #007bff 1px solid;
             box-shadow: 0 0 5px 0px #0000002b;
+            min-height: 80px;
             padding: 10px 15px;
             border-radius: 10px;
             margin: 10px;
@@ -70,14 +87,18 @@
             background-color: #939393;
             border-radius: 15px;
         }
-        
+
+        .form-control:focus {
+            border-color: #63636333;
+            box-shadow: none
+        }
         
     </style>
     <title>TV Copilot +</title>
 </head>
 <body>
     <div class="container" style="padding: 20px;">
-        <a href="/" style="color:#000000;text-decoration: none;"><span>📺 TV Copilot +</span></a>
+        <a href="/" style="text-decoration: none;font-weight: 500;color: #838080;"><span>📺 TV Copilot +</span></a>
 
         <div class="row">
             <div id="messages" style="
@@ -107,7 +128,7 @@
         <div class="container" style="
         margin: 30px auto 30px;
         padding: 10px 15px;
-        box-shadow: 1px 3px 10px #00000085;
+        box-shadow: 0px 5px 16px 0px #0000004a;
         border-radius: 40px;
         max-width: 700px;
         background: #ffffff42;">
@@ -118,9 +139,12 @@
                     padding-left: 20px;
                     height: 40px;font-size: large;"
                     id="text-to-send" placeholder="Sorunuzu yazın ya da mikrofon kullanın..." value=""/>           
-                    <button type="submit" class="btn btn-primary" style="border-radius: 20px; margin-left: 10px;" id="send">
+                    <button type="submit" class="btn btn-primary" style="border-radius: 20px; margin-left: 10px;width: 42px;display: none;" id="send">
                         <i class="fas fa-paper-plane"></i>
-                    </button></br>
+                    </button>
+                    <button type="submit" class="btn btn-primary" style="border-radius: 20px; margin-left: 10px;width: 42px;" id="micr">
+                        <i class="fas fa-microphone"></i>
+                    </button>
                 </div>
             </form>
         </div>  
