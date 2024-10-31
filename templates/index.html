@@ -1,0 +1,140 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required metadata tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Talk with TV Copilot!">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+
+    <style>
+        body {
+            background: linear-gradient(0deg, #eedcb5, #eef1fe);
+            background-size: 40% 1400%;
+            font-size: large;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                margin-top: 30px;
+            }
+            to {
+                opacity: 1;
+                margin-top: 20px;
+            }
+        }
+        .message_assistant {
+            background: #f1f1f1;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin:20px auto 20px 20px ;
+            max-width: 80%;
+            width: fit-content;
+            animation: fadeIn 1s ease-in;
+        }
+        .message_user {
+            background: #dadada;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin:20px 20px 20px auto;
+            max-width: 80%;
+            width: fit-content;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .ccard {
+            background: white;
+            color: #007bff;
+            border: #007bff 1px solid;
+            box-shadow: 0 0 5px 0px #0000002b;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 10px;
+            animation: fadeIn 1s ease-in;
+            cursor: pointer;
+            font-size: medium;
+        }
+        .ccard:hover {
+            background: #0269d6;
+            color: white
+        }
+
+        /* make scrollbar minimal */
+        ::-webkit-scrollbar {
+            width: 7px;
+            background-color: #939393;
+            border-radius: 15px;
+        }
+        
+        
+    </style>
+    <title>📺 Beko TV Copilot +</title>
+</head>
+<body>
+    <div class="container" style="padding: 20px;">
+        <a href="/" style="color:rgb(48, 48, 48);text-decoration: none;"><h4>📺 Beko TV Copilot +</h4></a>
+
+        <div class="row">
+            <div id="messages" style="
+                padding: 30px;
+                position: fixed;
+                bottom: 120px;
+                max-width: 1200px;
+                margin: auto;
+                top: 70px;
+                overflow-y: auto;
+                right: 20px;
+                left: 20px;
+        ">
+                <div class="message_assistant">
+                    Merhaba, bugün ne tür bir şey izlemek istersin?
+                </div>
+            </div>
+        </div> 
+
+    </div>
+    <div style="position: absolute;bottom: 0px;right: 0px;left: 0px;">
+        <div id="introcards" style="padding: 30px;display: flex;max-width: 800px;margin: auto;">
+            <div class="col ccard">Tom Cruse'un oynadığı komedi filmi var mı?</div>
+            <div class="col ccard">Bahar dizisinin son bölümü bugün müydü?</div>
+            <div class="col ccard">Bu akşam TV'de hangi diziler var?</div>
+        </div>
+        <div class="container" style="
+        margin: 20px auto 40px;
+        padding: 10px 15px;
+        box-shadow: 1px 3px 10px #00000085;
+        border-radius: 40px;
+        max-width: 700px;
+        background: #ffffff42;">
+            <form>
+                <div class="d-flex">
+                    <input class="form-control" 
+                    style="border-radius: 50px;
+                    padding-left: 20px;
+                    height: 40px;font-size: large;"
+                    id="text-to-send" placeholder="Type your message or use microphone..." value=""/>           
+                    <button type="submit" class="btn btn-primary" style="border-radius: 20px; margin-left: 10px;" id="send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button></br>
+                </div>
+            </form>
+        </div>  
+    </div>
+    <!-- Required Javascript for this tutorial -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        var mode = "{{ mode }}";
+    </script>
+    <script type="text/javascript" src="static/scripts/main.js"></script>
+
+
+</body>
+</html>

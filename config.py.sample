@@ -1,0 +1,5 @@
+openai_endpoint = "https://.../deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview"
+openai_key = "...."
+system_prompt = """
+    instructions
+"""
