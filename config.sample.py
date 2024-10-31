@@ -1,5 +1,5 @@
 
-speech_region ="eastus2",
+speech_region ="eastus2"
 speech_key= "..."
 speech_language = "tr-TR"
 speech_voice = "de-DE-FlorianMultilingualNeural"
