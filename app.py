@@ -5,6 +5,7 @@ app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 app.secret_key = 'BAD_SECRET_KEY'
 
+
 mysession ={}
 
 @app.route('/')
@@ -22,7 +23,7 @@ def index():
         ]
     }]
     print(mysession['chathistory'])
-    return render_template('index.html', mode=mode)
+    return render_template('index.html', mode=mode, speech_key=config.speech_key, speech_region=config.speech_region, speech_language=config.speech_language, speech_voice=config.speech_voice)  
 
 
 @app.route('/generate', methods=['POST'])
