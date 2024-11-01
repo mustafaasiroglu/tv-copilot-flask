@@ -15,10 +15,6 @@ def index():
         mysession['requestbody'] = {
             "question": "",
             "chat_history": [
-                {
-                    "inputs": {"question": "Merhaba"},
-                    "outputs": {"answer": "Merhaba, size nasıl yardımcı olabilirim?"}
-                }
             ]
         }
     else:
@@ -57,6 +53,7 @@ def callpromptflow():
 	data = request.get_json()
 	message_input = data['text']
 	mysession['requestbody']['question'] = message_input
+	print(mysession['requestbody'])
 	response = azureopenai.get_promptflow_response(mysession['requestbody'])
 
 
